@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'xmas_items/new'
+
+  get 'xmas_items/create'
+
+  get 'xmas_items/show'
+
   get 'users/show'
 
   root 'pages#home'
