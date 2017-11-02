@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>SecretSanta</title>
-     <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Slabo+27px|Poiret+One|Montserrat:100,200,300,700|Pacifico" rel="stylesheet">
     <%= csrf_meta_tags %>
 
@@ -12,9 +12,19 @@
 
   <body>
     <canvas id="sky"></canvas>
-     <%= render "shared/navbar" %>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <%= render "shared/navbar" %>
+
+    <% if notice %>
+    <div id="notice_wrapper" class="text-center">
+      <p class="notice"><%= notice %></p>
+    </div>
+    <% elsif alert %>
+    <div id="notice_wrapper" class="text-center">
+      <p class="alert"><%= alert %></p>
+    </div>
+    <% end %>
+
     <%= yield %>
+
   </body>
 </html>
