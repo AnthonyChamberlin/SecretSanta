@@ -1,8 +1,7 @@
-
-  <canvas id="sky"></canvas>
+<div class="container-fluid login-container">
 
   <div class="row login">
-    <h1 class="text-center">Chambo's Secret Santa!</h1>
+    <h1 class="text-center login-title">Log In...</h1>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field text-center">
@@ -32,3 +31,4 @@
   <div class="row signature">
     <%= image_tag "signature.png", class:"signature-img" %>
   </div>
+</div>

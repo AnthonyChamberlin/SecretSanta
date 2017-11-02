@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Secretsanta</title>
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Slabo+27px|Poiret+One|Montserrat:100,200,300|Pacifico" rel="stylesheet">
+    <title>SecretSanta</title>
+     <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Slabo+27px|Poiret+One|Montserrat:100,200,300,700|Pacifico" rel="stylesheet">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -10,6 +11,8 @@
   </head>
 
   <body>
+    <canvas id="sky"></canvas>
+     <%= render "shared/navbar" %>
     <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <%= yield %>
