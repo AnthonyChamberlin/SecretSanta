@@ -1,16 +1,13 @@
+<% if !user_signed_in? %>
 <div class="container-fluid top-container">
   <h1 class="text-center">Discover your Secret Santa...</h1>
   <h3 class="text-center desc">Welcome to the very first Chambo web app!</h3>
 
   <div class="row get-started-row">
     <div class="text-center">
-      <% if !user_signed_in? %>
       <%= link_to "Get Started", new_user_session_path, class:"get-started" %>
-      <% end %>
     </div>
   </div>
-
-
 
   <h3 class="text-center how-it-works">How it Works</h3>
 
@@ -24,9 +21,7 @@
 
         <h4 class="feature-desc">The app will randomly generate pairs, similar to picking names out of a hat! (Only you can see your match!)</h4>
 
-      <% if !user_signed_in? %>
       <li class="feature-btn"><%= link_to "See Your Match", new_user_session_path, class:"feature-link" %></li>
-      <% end %>
 
     </div>
   </div>
@@ -39,9 +34,7 @@
 
       <h4 class="feature-desc">Only you and the person you are paired with can see what you want for christmas (with a limit of £50)!</h4>
 
-      <% if !user_signed_in? %>
       <li class="feature-btn"><%= link_to "Post Your Presents", new_user_session_path, class:"feature-link" %></li>
-      <% end %>
 
     </div>
   </div>
@@ -54,21 +47,70 @@
 
       <h4 class="feature-desc">The Christmas Dinner apetiser menu will be posted in the app. You can select what you want from there!</h4>
 
-      <% if !user_signed_in? %>
       <li class="feature-btn"><%= link_to "View the Menu", new_user_session_path, class:"feature-link" %></li>
-      <% end %>
 
     </div>
   </div>
 </div>
 
+<% else %>
+
+<div class="container-fluid signed-in-top-container">
+  <h1 class="text-center">Welcome <%= current_user.first_name %>!</h1>
+  <h3 class="text-center desc"></h3>
+
+  <h3 class="text-center what-would">What would you like to do?</h3>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="signed-in-inner-col text-center">
+        <div class="row">
+          <h4 class="feature-title">Reveal My Secret Santa</h4>
+        </div>
+        <%= image_tag "reveal.png", class:"present" %>
+
+        <h4 class="feature-desc">The app will randomly generate pairs, similar to picking names out of a hat! (Only you can see your match!)</h4>
+
+        <li class="feature-btn"><%= link_to "Reveal!", new_user_session_path, class:"feature-link" %></li>
+
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="signed-in-inner-col text-center">
+        <div class="row">
+          <h4 class="feature-title">Post My Christmas List Items</h4>
+        </div>
+        <%= image_tag "present.png", class:"present" %>
+
+        <h4 class="feature-desc">Only you and your Secret Santa will be able to see what you would like for Christmas!</h4>
+
+        <li class="feature-btn"><%= link_to "Post My Items", new_user_session_path, class:"feature-link" %></li>
+
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="signed-in-inner-col text-center">
+        <div class="row">
+          <h4 class="feature-title">Choose my Xmas Dinner Starter</h4>
+        </div>
+        <%= image_tag "meal.png", class:"present" %>
+
+        <h4 class="feature-desc">You can choose one starter from the Menu! Click below to check out what's on offer this year at the table!</h4>
+
+        <li class="feature-btn"><%= link_to "Choose My Starter", new_user_session_path, class:"feature-link" %></li>
+
+      </div>
+    </div>
+  </div>
+  <% end %>
+
 </div>
 
 <div class="container-fluid bottom-container">
 
-<h3 class="text-center christmas-countdown">Christmas Countdown</h3>
+  <h3 class="text-center christmas-countdown">Christmas Countdown</h3>
 
-<!-- <div id="del-countdown">
+  <!-- <div id="del-countdown">
     <div id="clock"></div>
     <div id="units">
       <span>Days</span>
@@ -78,8 +120,8 @@
     </div>
   </div> -->
 
-<div class="row home-snow-hills">
-  <%= image_tag "background.png", class:"home_tree_background" %>
-</div>
+  <div class="row home-snow-hills">
+    <%= image_tag "background.png", class:"home_tree_background" %>
+  </div>
 
 </div>
